@@ -6,3 +6,4 @@ bower_components
 .idea
 *.log
 *.DS_STORE
+*.DS_Store
