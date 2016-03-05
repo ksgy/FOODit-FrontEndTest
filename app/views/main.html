@@ -1,48 +1,51 @@
 <section class="orders">
 
   <header>
+    <button class="orders-order__btn">It's time to order some delicios food</button>
+  </header>
+
+  <header>
     <h1>Your Order</h1>
     <h2>A Delicios Restaurant</h2>
   </header>
 
-  <button>It's time to order some delicios food</button>
+  <main>
+    <label>3 mains</label>
+    <ul class="orders-list">
+      <li class="orders-list__item">
+        <input class="orders-list__item--amount" type="number" min="0" name="">
+        <small class="orders-list__item--price">£29.33</small>
+        <h4 class="orders-list__item--name">Seafood Sauce</h4>
+        <h5 class="orders-list__item--extra">- chili</h5>
 
-  <label>3 mains</label>
-  <ul>
-    <li>
-      <h4>Seafood Sauce</h4>
-      <h5>- chili</h5>
-      <input type="number" min="0" name="">
-      <button>+1</button>
-      <button>-1</button>
-    </li>
-    <li>
-      <h4>Fusilli goat cheese and spinach</h4>
-      <h5>- chili</h5>
-      <input type="number" min="0" name="">
-      <button>+1</button>
-      <button>-1</button>
-    </li>
-    <li>
-      <h4>Fusilli goat cheese and spinach Fusilli goat cheese and spinach Fusilli goat cheese and spinach</h4>
-      <h5>- chili</h5>
-      <input type="number" min="0" name="">
-      <button>+1</button>
-      <button>-1</button>
-    </li>
-  </ul>
+      </li>
+      <li class="orders-list__item">
+        <input class="orders-list__item--amount" type="number" min="0" name="">
+        <small class="orders-list__item--price">£29.33</small>
+        <h4 class="orders-list__item--name">Fusilli goat cheese and spinach</h4>
+        <h5 class="orders-list__item--extra">- chili</h5>
 
-  <label>1 other</label>
-  <ul>
-    <li>
-      <h4>Seafood Sauce</h4>
-      <h5>- chili</h5>
-      <input type="number" min="0" name="">
-      <button>+1</button>
-      <button>-1</button>
-    </li>
-  </ul>
+      </li>
+      <li class="orders-list__item">
+        <input class="orders-list__item--amount" type="number" min="0" name="">
+        <small class="orders-list__item--price">£29.33</small>
+        <h4 class="orders-list__item--name">Fusilli goat cheese and spinach Fusilli goat cheese and spinach Fusilli goat cheese and spinach</h4>
+        <h5 class="orders-list__item--extra">- chili</h5>
 
+      </li>
+    </ul>
+
+    <label>1 other</label>
+    <ul class="orders-list">
+      <li class="orders-list__item">
+        <input class="orders-list__item--amount" type="number" min="0" name="">
+        <small class="orders-list__item--price">£29.33</small>
+        <h4 class="orders-list__item--name">Seafood Sauce</h4>
+        <h5 class="orders-list__item--extra">- chili</h5>
+
+      </li>
+    </ul>
+  </main>
   <footer>
     <button>Confirm Your Order</button>
     <label>£33.33</label>
@@ -56,12 +59,12 @@
     <h1 class="restaurant">Your Delicios Restaurant</h1>
   </header>
 
-  <ul>
-      <li class="meals-item" ng-repeat="meal in menu.meals track by meal.id">
-          <h4 class="meals-item__name">{{meal.name}}</h4>
-          <img class="meals-item__image" ng-src="{{meal.primaryImageUrl}}">
-          <p class="meals-item__description">{{meal.description}}</p>
-          <p class="meals-item__price">{{meal.price}}</p>
+  <ul class="meals-list">
+      <li class="meals-list__item" ng-repeat="meal in menu.meals track by meal.id">
+          <h4 class="meals-list__item--name">{{meal.name}}</h4>
+          <img class="meals-list__item--image" ng-src="{{meal.primaryImageUrl}}">
+          <p class="meals-list__item--description">{{meal.description}}</p>
+          <p class="meals-list__item--price">{{meal.price}}</p>
       </li>
   </ul>
 
