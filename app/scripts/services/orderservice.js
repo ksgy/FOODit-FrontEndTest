@@ -29,7 +29,6 @@ angular.module('jstestApp')
 		}
 
 		function addMeal (id) {
-
 			var cantAdd = !!_.filter(orders, function(meal) {
 				return meal == id
 			}).length || !MenuService.getMeal(id);
@@ -62,6 +61,10 @@ angular.module('jstestApp')
 
 		function getError () {
 			return error
+		}
+
+		function getCourses () {
+
 		}
 
 	});

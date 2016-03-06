@@ -63,12 +63,12 @@
       <li class="meals-list__item" ng-repeat="meal in menu.meals track by meal.id" style="background-image: url({{meal.primaryImageUrl}})">
           <h4 class="meals-list__item--name">{{meal.name}}</h4>
           <ul class="meals-list__item--tags">
-            <li ng-repeat="tags in meal.tags track by $index" ng-class="meals-list__item--tag-{{tags}}" style="background-image: url(/assets/tag--{{tags}}.svg"></li>
+            <li ng-repeat="tag in meal.tags track by $index" ng-class="{{getMealClass(tag)}}" style="{{getTagImage(tag)}}"></li>
           </ul>
           <section>
             <p class="meals-list__item--description filtered">{{meal.description}}</p>
             <p class="meals-list__item--price">{{meal.price}}</p>
-            <button class="meals-list__item--add-btn">Add To Your Order</button>
+            <add-order></add-order>
             <small class="meals-list__item--options">3 options available</small>
           </section>
       </li>

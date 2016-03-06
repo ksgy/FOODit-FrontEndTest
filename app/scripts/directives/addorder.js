@@ -6,13 +6,15 @@
  * @description
  * # addOrder
  */
+
 angular.module('jstestApp')
-  .directive('addOrder', function () {
-    return {
-      template: '<div></div>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the addOrder directive');
-      }
-    };
-  });
+.directive('addOrder', function (orderService) {
+	return {
+		templateUrl: '/views/addorder.html',
+		restrict: 'E',
+		replace: true,
+		link: function postLink(scope, element, attrs) {
+
+		}
+	};
+});

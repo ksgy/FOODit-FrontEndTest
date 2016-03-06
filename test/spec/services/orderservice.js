@@ -100,4 +100,22 @@ describe('Service: orderService', function () {
     expect(orderService.error()).toBe('Error adding order - yyy');
   });
 
+  it('should return meal types', function () {
+    var menuData = {'resultCount': 2, 'offset': 0, 'pageSize': 20, 'meals': [
+      { id: '123', tags: ['#course:main_courses', '#diet:pescetarian'] },
+        { id: '456', tags: ['#course:sides'] },
+        { id: '789' }
+    ]
+    };
+    $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
+      return [200, menuData];
+    });
+    MenuService.getMenu().then(function (data) {
+        expect(orderService.getCourses()).toEqual(['main_courses', 'sides']);
+    }, function(error) {
+        // TODO error handling
+    });
+    $httpBackend.flush();
+  });
+
 });

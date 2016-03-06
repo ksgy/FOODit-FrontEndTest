@@ -56,6 +56,35 @@ describe('Service: MenuService', function () {
   		// TODO error handling
   	});
   	$httpBackend.flush();
-  })
+  });
+
+
+  it('should transform tag properties to meal properties', function() {
+    var menuData = {'resultCount': 2, 'offset': 0, 'pageSize': 20, 'meals': [
+      { id: '123', tags: ['#course:main_courses', '#diet:pescetarian'] },
+      { id: '456', tags: ['#course:sides'] },
+      { id: '789' }
+    ]
+    };
+    $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
+      return [200, menuData];
+    });
+    MenuService.getMenu().then(function (data) {
+        var meal1 = MenuService.getMeal('123');
+        expect(meal1.course).toBe('main_courses');
+        expect(meal1.diet).toBe('pescetarian');
+
+        var meal2 = MenuService.getMeal('456');
+        expect(meal2.course).toBe('sides');
+
+        var meal3 = MenuService.getMeal('789');
+        expect(meal3.course).toBe(undefined);
+
+    }, function(error) {
+        // TODO error handling
+    });
+    $httpBackend.flush();
+  });
+
 
 });
