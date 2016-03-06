@@ -10,7 +10,7 @@
 angular.module('jstestApp')
 	.factory('MenuService', ['$http', '$q', function ($http, $q) {
 
-		var menu = {};
+		var menu = { meals: []};
 
 		var service = {
 			getMenu: getMenu,
@@ -35,14 +35,9 @@ angular.module('jstestApp')
 		}
 
 		function getMeal(id) {
-			var meal = {};
-			for (var i = menu.meals.length - 1; i >= 0; i--) {
-				if(menu.meals[i].id == id){
-					meal = menu.meals[i];
-					break;
-				}
-			}
-			return meal;
+			return _.filter(_.get(menu, 'meals'), function(meal) {
+				return meal.id == id
+			})[0];
 		}
 	}]);
 

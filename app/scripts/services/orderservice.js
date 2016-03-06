@@ -8,29 +8,60 @@
  * Service in the jstestApp.
  */
 angular.module('jstestApp')
-	.service('orderService', function () {
+	.service('orderService', function (MenuService) {
 
 		var orders = [];
+		var error = '';
 
 		var service = {
 			getOrders: getOrders,
 			addMeal: addMeal,
 			removeMeal: removeMeal,
-			placeOrder: placeOrder
+			placeOrder: placeOrder,
+			error: getError
 		};
 
 		return service;
 
 		function getOrders () {
 			// TODO filter by tag #course:
+			return orders
 		}
-		function addMeal (meal) {
+
+		function addMeal (id) {
+
+			var cantAdd = !!_.filter(orders, function(meal) {
+				return meal == id
+			}).length || !MenuService.getMeal(id);
+
+			if(cantAdd){
+				error = 'Error adding order - ' + id;
+			} else {
+				orders.push(id);
+				error = '';
+			}
 
 		}
-		function removeMeal (meal) {
+
+		function removeMeal (id) {
+
+			if(!MenuService.getMeal(id)){
+				error = 'Error removing order - ' + id;
+			} else {
+				_.remove(orders, function(order) {
+					return order == id;
+				});
+				error = '';
+			}
 
 		}
+
 		function placeOrder () {
 
 		}
+
+		function getError () {
+			return error
+		}
+
 	});
