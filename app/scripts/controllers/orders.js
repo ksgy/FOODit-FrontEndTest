@@ -10,6 +10,8 @@
 angular.module('jstestApp')
   .controller('OrdersCtrl', function ($scope, orderService, MenuService) {
   	$scope.getCourses = orderService.getCourses;
+  	$scope.addMeal = orderService.addMeal;
+  	$scope.removeMeal = orderService.removeMeal;
   	$scope.getOrders = function(course) {
   		// "merge" amount property with the orders
   		var _orders = orderService.getOrders(course)

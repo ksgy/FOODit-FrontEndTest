@@ -13,7 +13,7 @@ angular.module('jstestApp')
       restrict: 'E',
       controller: 'OrdersCtrl',
       link: function postLink(scope, element, attrs) {
-
+		// TODO when adding/removing item, check height of orders-list and add scrolling class if needed
       }
     };
   });

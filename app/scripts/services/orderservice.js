@@ -10,7 +10,7 @@
 angular.module('jstestApp')
 	.service('orderService', function (MenuService) {
 
-		var orders = [];
+		var orders = restoreOrders() || [];
 		var error = '';
 
 		var service = {
@@ -61,6 +61,7 @@ angular.module('jstestApp')
 				} else {
 					orders.push({ id: id, amount: 1 });
 				}
+				saveOrders();
 
 			}
 
@@ -74,7 +75,7 @@ angular.module('jstestApp')
 
 				error = '';
 
-				var _orderIndex = _.findIndex(orders, function(o) { return o == id })
+				var _orderIndex = _.findIndex(orders, function(o) { return o.id == id })
 
 				if(_.get(orders[_orderIndex], 'amount') > 1) {
 					orders[_orderIndex].amount--;
@@ -83,6 +84,7 @@ angular.module('jstestApp')
 						return order.id == id;
 					});
 				}
+				saveOrders();
 
 			}
 
@@ -101,6 +103,14 @@ angular.module('jstestApp')
 				return _.get(MenuService.getMeal(order.id), 'course')
 			})));
 
+		}
+
+		function saveOrders () {
+			localStorage.setItem('Foodit-Orders', JSON.stringify(orders));
+		}
+
+		function restoreOrders () {
+			return JSON.parse(localStorage.getItem('Foodit-Orders'));
 		}
 
 	});
