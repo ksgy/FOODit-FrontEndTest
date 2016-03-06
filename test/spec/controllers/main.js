@@ -16,7 +16,7 @@ describe('Controller: MainCtrl', function () {
 	var success = function(func) {
 	  return func({resultCount: 1});
 	};
-	spyOn(MenuService, 'get').and.returnValue({success: success});
+	spyOn(MenuService, 'getMenu').and.returnValue({then: success});
     MainCtrl = $controller('MainCtrl', {
       $scope: scope
     });
@@ -24,7 +24,7 @@ describe('Controller: MainCtrl', function () {
 
 
   it('should call the menu service to retrieve a list of meals', function () {
-	expect(MenuService.get).toHaveBeenCalled();
+	expect(MenuService.getMenu).toHaveBeenCalled();
 	expect(scope.menu.resultCount).toBe(1);
   });
 

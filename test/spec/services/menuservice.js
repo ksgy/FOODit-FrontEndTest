@@ -30,12 +30,32 @@ describe('Service: MenuService', function () {
 	$httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
 	  return [200, menuData];
 	});
-	MenuService.get().success(function (data) {
+	MenuService.getMenu().then(function (data) {
 	  expect(data.resultCount).toBe(menuData.resultCount);
 	  expect(data.meals.length).toBe(menuData.meals.length);
 	  expect(data.meals[0].id).toBe(menuData.meals[0].id);
+	}, function(error) {
+		// TODO error handling
 	});
 	$httpBackend.flush();
   });
+
+  it('should get a meal by id', function() {
+  	var menuData = {'resultCount': 2, 'offset': 0, 'pageSize': 20, 'meals': [
+  	  { id: '123' },
+  	  { id: '456' }
+  	]
+  	};
+  	$httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
+  	  return [200, menuData];
+  	});
+  	MenuService.getMenu().then(function (data) {
+  		var meal = MenuService.getMeal('456');
+  	  expect(meal.id).toBe('456');
+  	}, function(error) {
+  		// TODO error handling
+  	});
+  	$httpBackend.flush();
+  })
 
 });

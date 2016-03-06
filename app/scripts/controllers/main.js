@@ -10,8 +10,12 @@
 angular.module('jstestApp')
   .controller('MainCtrl', ['$scope', 'MenuService', function ($scope, MenuService) {
 	$scope.menu = {};
-    MenuService.get('/data/menu.json').success(function(data) {
+    MenuService.getMenu().then(function(data) {
+    	// TODO parse #
+    	// TODO pagination
 	  $scope.menu = data;
+	}, function(error) {
+		// TODO error handling
 	});
 
   }
