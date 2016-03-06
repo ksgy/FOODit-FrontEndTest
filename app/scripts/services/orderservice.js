@@ -22,10 +22,7 @@ angular.module('jstestApp')
 		return service;
 
 		function getOrders () {
-			return {
-				main: [],
-				other: []
-			}
+			// TODO filter by tag #course:
 		}
 		function addMeal (meal) {
 
