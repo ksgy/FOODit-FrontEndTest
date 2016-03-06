@@ -14,7 +14,7 @@ angular.module('jstestApp')
 		restrict: 'E',
 		replace: true,
 		link: function postLink(scope, element, attrs) {
-
+			// TODO disable if added
 		}
 	};
 });

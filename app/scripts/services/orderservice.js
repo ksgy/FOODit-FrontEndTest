@@ -18,26 +18,50 @@ angular.module('jstestApp')
 			addMeal: addMeal,
 			removeMeal: removeMeal,
 			placeOrder: placeOrder,
-			error: getError
+			error: getError,
+			getCourses: getCourses
 		};
 
 		return service;
 
-		function getOrders () {
-			// TODO filter by tag #course:
-			return orders
+		function getOrders (course) {
+			if(!course){
+				return orders
+			}
+
+			return _.filter(orders, function(order){
+				return _.get(MenuService.getMeal(order.id), 'course') == course
+			});
+
 		}
 
 		function addMeal (id) {
-			var cantAdd = !!_.filter(orders, function(meal) {
-				return meal == id
-			}).length || !MenuService.getMeal(id);
+
+			var cantAdd = !MenuService.getMeal(id);
 
 			if(cantAdd){
 				error = 'Error adding order - ' + id;
 			} else {
-				orders.push(id);
+
 				error = '';
+
+
+				var exists = !!_.filter(orders, function(o) {
+					return o.id == id
+				}).length;
+
+				if(exists){
+					for (var i = orders.length - 1; i >= 0; i--) {
+						if(orders[i].id == id){
+							orders[i].amount++
+							break;
+						}
+					}
+
+				} else {
+					orders.push({ id: id, amount: 1 });
+				}
+
 			}
 
 		}
@@ -47,10 +71,19 @@ angular.module('jstestApp')
 			if(!MenuService.getMeal(id)){
 				error = 'Error removing order - ' + id;
 			} else {
-				_.remove(orders, function(order) {
-					return order == id;
-				});
+
 				error = '';
+
+				var _orderIndex = _.findIndex(orders, function(o) { return o == id })
+
+				if(_.get(orders[_orderIndex], 'amount') > 1) {
+					orders[_orderIndex].amount--;
+				} else {
+					_.remove(orders, function(order) {
+						return order.id == id;
+					});
+				}
+
 			}
 
 		}
@@ -64,6 +97,9 @@ angular.module('jstestApp')
 		}
 
 		function getCourses () {
+			return _.uniq(_.compact(_.map(orders, function(order){
+				return _.get(MenuService.getMeal(order.id), 'course')
+			})));
 
 		}
 

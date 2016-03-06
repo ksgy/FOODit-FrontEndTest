@@ -1,0 +1,31 @@
+<section class="orders">
+
+  <header>
+    <button class="orders-order__btn">It's time to order some delicios food</button>
+  </header>
+
+  <header>
+    <h1>Your Order</h1>
+    <h2>A Delicios Restaurant</h2>
+  </header>
+
+  <main>
+    <label ng-repeat-start="course in getCourses() track by $index">3 mains</label>
+    <ul class="orders-list" ng-repeat-end>
+      <li class="orders-list__item" ng-repeat="meal in getOrders(course) track by $index+meal.id">
+        <input class="orders-list__item--amount" type="number" min="0" name="" ng-model="getAmount(meal.id).length">
+        <small class="orders-list__item--price">£{{meal.price|number}}</small>
+        <h4 class="orders-list__item--name">{{meal.name}}</h4>
+        <!-- TODO <h5 class="orders-list__item--extra">- chili</h5> -->
+
+      </li>
+    </ul>
+
+
+  </main>
+  <footer>
+    <button>Confirm Your Order</button>
+    <label>£33.33</label>
+  </footer>
+
+</section>
