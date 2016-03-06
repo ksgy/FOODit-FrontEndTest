@@ -40,3 +40,13 @@ The solution should take into account:
 This app was generated using the `generator-angular` Yeoman generator.
 
 It uses AngularJS 1.3
+
+## TODO
+[ ] Refactor function calls to variables for ng-repeat
+[ ] Refactor $scope/service functions to variables to save $digest()/$apply()
+[ ] Add animation to orders
+[ ] Position price with flexbox
+[ ] Error handling for $http calls
+[ ] Pagination
+[ ] Check height of orders-list and add `scrolling` class if needed 
+[ ] Refactor CSS classes: button mixin, etc.

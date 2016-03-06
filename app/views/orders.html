@@ -1,4 +1,4 @@
-<section class="orders">
+<section class="orders open">
 
   <header  ng-if="getCourses().length == 0">
     <button class="orders-order__btn">It's time to order some delicios food</button>
@@ -10,14 +10,14 @@
   </header>
 
   <main ng-if="getCourses().length > 0">
-    <label ng-repeat-start="course in getCourses() track by $index">3 mains</label>
+    <label ng-repeat-start="course in getCourses() track by $index">{{ getOrders(course).length }} main{{getOrders(course).length>1?'s':''}}</label>
     <ul class="orders-list" ng-repeat-end>
       <li class="orders-list__item" ng-repeat="meal in getOrders(course) track by $index+meal.id">
-        <button class="orders-list__item--add" ng-click="addMeal(meal.id)">+</button>
-        <label class="orders-list__item--amount">{{meal.amount}}</label>
         <button class="orders-list__item--remove" ng-click="removeMeal(meal.id)">-</button>
-        <small class="orders-list__item--price">£{{meal.price|number:2}}</small>
+        <label class="orders-list__item--amount">{{meal.amount}}</label>
+        <button class="orders-list__item--add" ng-click="addMeal(meal.id)">+</button>
         <h4 class="orders-list__item--name">{{meal.name}}</h4>
+        <small class="orders-list__item--price">£{{meal.price|number:2}}</small>
         <!-- TODO <h5 class="orders-list__item--extra">- chili</h5> -->
       </li>
     </ul>
