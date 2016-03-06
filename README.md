@@ -51,6 +51,9 @@ It uses AngularJS 1.3
 [ ] Add feedback for the user if meal has added to the orders
 [ ] Add "Clear" button to orders overlay
 [ ] Meals list can in 2-3 columns on tablet landscape
+[ ] `It's time to order some delicious...` confusing - should show a message what to do
+[ ] Add down arrow/bouncing animation/etc to closed state of order overlay
+[ ] Swiping down only on orders overlay should open it. Swiping on meal list, should keep it colsed 
 
 ## Bugs
 
