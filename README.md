@@ -42,11 +42,28 @@ This app was generated using the `generator-angular` Yeoman generator.
 It uses AngularJS 1.3
 
 ## TODO
+
+[ ] Add SVG to meal-cards 
+[ ] Fix closed state of orders overlay
+[ ] Add open/close detailed text on meal-card
+[ ] Check height of orders-list and add `scrolling` class if needed 
+[ ] Add animation to orders
+[ ] Add feedback for the user if meal has added to the orders
+[ ] Add "Clear" button to orders overlay
+[ ] Meals list can in 2-3 columns on tablet landscape
+
+## Bugs
+
+[ ] iPhone / portrait: orders overlay falls apart (might be a flexbox issue)
+
+## Refactor
+
 [ ] Refactor function calls to variables for ng-repeat
 [ ] Refactor $scope/service functions to variables to save $digest()/$apply()
-[ ] Add animation to orders
 [ ] Position price with flexbox
 [ ] Error handling for $http calls
 [ ] Pagination
-[ ] Check height of orders-list and add `scrolling` class if needed 
 [ ] Refactor CSS classes: button mixin, etc.
+[ ] Breakdown functional parts to directives
+[ ] Unit tests for controllers
+[ ] e2e tests
