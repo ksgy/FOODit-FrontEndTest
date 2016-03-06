@@ -11,17 +11,32 @@ angular.module('jstestApp')
   .controller('OrdersCtrl', function ($scope, orderService, MenuService) {
   	$scope.getCourses = orderService.getCourses;
   	$scope.getOrders = function(course) {
-  		var _courses = orderService.getOrders(course);
-  		var _orders = [];
-  		for (var i = _courses.length - 1; i >= 0; i--) {
-  			_orders.push(MenuService.getMeal(_courses[i]))
+  		// "merge" amount property with the orders
+  		var _orders = orderService.getOrders(course)
+  		var _o = [];
+  		for (var i = _orders.length - 1; i >= 0; i--) {
+  			var order = MenuService.getMeal(_orders[i].id);
+  			order.amount = _orders[i].amount
+  			_o.push(order);
   		}
-  		return _.sortBy(_.uniq(_orders), function(o) { return o.name; });
+  		return _o
   	}
+
+  	$scope.getMeal = MenuService.getMeal;
+
   	$scope.getAmount = function(order) {
   		return _.filter(orderService.getOrders(), function(o) {
   			return o == order
   		});
+  	}
+
+  	$scope.getTotal = function() {
+  		var orders = orderService.getOrders();
+  		var total = 0;
+  		for (var i = orders.length - 1; i >= 0; i--) {
+  			total += parseFloat(orders[i].amount * MenuService.getMeal(orders[i].id).price);
+  		}
+  		return total
   	}
 
   });
