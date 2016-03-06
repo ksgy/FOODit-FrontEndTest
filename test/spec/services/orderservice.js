@@ -16,10 +16,10 @@ describe('Service: orderService', function () {
     orderService = $injector.get('orderService');
   }));
 
-    afterEach(function() {
-        $httpBackend.verifyNoOutstandingExpectation();
-        $httpBackend.verifyNoOutstandingRequest();
-    });
+  afterEach(function() {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
 
 
   it('should do exist', function () {
@@ -30,21 +30,20 @@ describe('Service: orderService', function () {
     var menuData = {'resultCount': 2, 'offset': 0, 'pageSize': 20, 'meals': [
       { id: '123' },
       { id: '456' }
-    ]
-    };
+    ]};
     $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
       return [200, menuData];
     });
 
     MenuService.getMenu().then(function (data) {
-        orderService.addMeal('123');
-        var orders = orderService.getOrders();
-        expect(orders.length).toBe(1);
-        orderService.addMeal('456');
-        expect(orders.length).toBe(2);
+      orderService.addMeal('123');
+      var orders = orderService.getOrders();
+      expect(orders.length).toBe(1);
+      orderService.addMeal('456');
+      expect(orders.length).toBe(2);
     }, function(error) {
-        // TODO error handling
-    });
+          // TODO error handling
+        });
     $httpBackend.flush();
   });
 
@@ -53,20 +52,19 @@ describe('Service: orderService', function () {
     var menuData = {'resultCount': 2, 'offset': 0, 'pageSize': 20, 'meals': [
       { id: '123' },
       { id: '456' }
-    ]
-    };
+    ]};
     $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
       return [200, menuData];
     });
     MenuService.getMenu().then(function (data) {
-        orderService.addMeal('123');
-        orderService.addMeal('456');
-        orderService.removeMeal('456');
-        var orders = orderService.getOrders();
-        expect(orders.length).toBe(1);
+      orderService.addMeal('123');
+      orderService.addMeal('456');
+      orderService.removeMeal('456');
+      var orders = orderService.getOrders();
+      expect(orders.length).toBe(1);
     }, function(error) {
-        // TODO error handling
-    });
+          // TODO error handling
+        });
     $httpBackend.flush();
 
   });
@@ -80,17 +78,16 @@ describe('Service: orderService', function () {
     var menuData = {'resultCount': 2, 'offset': 0, 'pageSize': 20, 'meals': [
       { id: '123' },
       { id: '456' }
-    ]
-    };
+    ]};
     $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
       return [200, menuData];
     });
     MenuService.getMenu().then(function (data) {
-        orderService.removeMeal('xxx');
-        expect(orderService.error()).toBe('Error removing order - xxx');
+      orderService.removeMeal('xxx');
+      expect(orderService.error()).toBe('Error removing order - xxx');
     }, function(error) {
-        // TODO error handling
-    });
+          // TODO error handling
+        });
     $httpBackend.flush();
   });
 
@@ -102,24 +99,23 @@ describe('Service: orderService', function () {
 
   it('should return meal types', function () {
     var menuData = {'resultCount': 2, 'offset': 0, 'pageSize': 20, 'meals': [
-        { id: '123', tags: ['#course:main_courses', '#diet:pescetarian'] },
-        { id: '000', tags: ['#course:main_courses', '#diet:pescetarian'] },
-        { id: '456', tags: ['#course:sides'] },
-        { id: '789' }
-    ]
-    };
+      { id: '123', tags: ['#course:main_courses', '#diet:pescetarian'] },
+      { id: '000', tags: ['#course:main_courses', '#diet:pescetarian'] },
+      { id: '456', tags: ['#course:sides'] },
+      { id: '789' }
+    ]};
     $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
       return [200, menuData];
     });
     MenuService.getMenu().then(function (data) {
-        orderService.addMeal('123');
-        orderService.addMeal('456');
-        orderService.addMeal('789');
-        orderService.addMeal('000');
-        expect(orderService.getCourses()).toEqual(['main_courses', 'sides']);
+      orderService.addMeal('123');
+      orderService.addMeal('456');
+      orderService.addMeal('789');
+      orderService.addMeal('000');
+      expect(orderService.getCourses()).toEqual(['main_courses', 'sides']);
     }, function(error) {
-        // TODO error handling
-    });
+          // TODO error handling
+        });
     $httpBackend.flush();
   });
 
@@ -128,25 +124,24 @@ describe('Service: orderService', function () {
       { id: '123', tags: ['#course:main_courses', '#diet:pescetarian'] },
       { id: '456', tags: ['#course:sides'] },
       { id: '789' }
-    ]
-    };
+    ]};
     $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
       return [200, menuData];
     });
 
     MenuService.getMenu().then(function (data) {
-        orderService.addMeal('123');
-        orderService.addMeal('456');
-        orderService.addMeal('789');
+      orderService.addMeal('123');
+      orderService.addMeal('456');
+      orderService.addMeal('789');
 
-        var ordersAll = orderService.getOrders();
-        expect(ordersAll.length).toBe(3);
+      var ordersAll = orderService.getOrders();
+      expect(ordersAll.length).toBe(3);
 
-        var ordersMain = orderService.getOrders('main_courses');
-        expect(ordersMain.length).toBe(1);
+      var ordersMain = orderService.getOrders('main_courses');
+      expect(ordersMain.length).toBe(1);
     }, function(error) {
-        // TODO error handling
-    });
+          // TODO error handling
+        });
     $httpBackend.flush();
   });
 

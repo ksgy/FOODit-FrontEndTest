@@ -13,7 +13,7 @@
     <label ng-repeat-start="course in getCourses() track by $index">3 mains</label>
     <ul class="orders-list" ng-repeat-end>
       <li class="orders-list__item" ng-repeat="meal in getOrders(course) track by $index+meal.id">
-		<button class="orders-list__item--add" ng-click="addMeal(meal.id)">+</button>
+        <button class="orders-list__item--add" ng-click="addMeal(meal.id)">+</button>
         <label class="orders-list__item--amount">{{meal.amount}}</label>
         <button class="orders-list__item--remove" ng-click="removeMeal(meal.id)">-</button>
         <small class="orders-list__item--price">£{{meal.price|number:2}}</small>

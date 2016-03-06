@@ -9,12 +9,12 @@
 
 angular.module('jstestApp')
 .directive('addOrder', function (orderService) {
-	return {
-		templateUrl: '/views/addorder.html',
-		restrict: 'E',
-		replace: true,
-		link: function postLink(scope, element, attrs) {
-			// TODO disable if added
-		}
-	};
+  return {
+    templateUrl: '/views/addorder.html',
+    restrict: 'E',
+    replace: true,
+    link: function postLink(scope, element, attrs) {
+      // TODO disable if added
+    }
+  };
 });

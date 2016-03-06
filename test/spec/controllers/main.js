@@ -6,17 +6,17 @@ describe('Controller: MainCtrl', function () {
   beforeEach(module('jstestApp'));
 
   var MainCtrl,
-	scope,
-	MenuService;
+  scope,
+  MenuService;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $injector) {
     scope = $rootScope.$new();
-	MenuService = $injector.get('MenuService');
-	var success = function(func) {
-	  return func({resultCount: 1});
-	};
-	spyOn(MenuService, 'getMenu').and.returnValue({then: success});
+    MenuService = $injector.get('MenuService');
+    var success = function(func) {
+      return func({resultCount: 1});
+    };
+    spyOn(MenuService, 'getMenu').and.returnValue({then: success});
     MainCtrl = $controller('MainCtrl', {
       $scope: scope
     });
@@ -24,8 +24,8 @@ describe('Controller: MainCtrl', function () {
 
 
   it('should call the menu service to retrieve a list of meals', function () {
-	expect(MenuService.getMenu).toHaveBeenCalled();
-	expect(scope.menu.resultCount).toBe(1);
+    expect(MenuService.getMenu).toHaveBeenCalled();
+    expect(scope.menu.resultCount).toBe(1);
   });
 
 });
