@@ -47,8 +47,9 @@
               swipeFunc.touches[event.type] = true;
               if (swipeFunc.touches.touchstart.y > -1 && swipeFunc.touches.touchmove.y > -1) {
                 swipeFunc.touches.direction = swipeFunc.touches.touchstart.y < swipeFunc.touches.touchmove.y ? "top" : "bottom";
+                // console.log(getParents(event.target, 'section', 'orders'))
                 if(getParents(event.target, 'section', 'orders')){
-                  event.preventDefault();
+                  // event.preventDefault();
                   if(swipeFunc.touches.direction == 'bottom'){
                     angular.element(document.querySelector('section.orders')).removeClass('open')
                   } else {

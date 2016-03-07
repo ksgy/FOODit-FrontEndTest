@@ -4,24 +4,35 @@
   z-index: 10
   width: $full
   +box-shadow(0 0px 30px 10px rgba(0,0,0,0.5))
-
+  height: 80%
+  +display-flex
+  +flex-direction(column)
+  top: -80%
+  margin-top: 69px
 
   &.open
+    top: 0
+    // TODO use translate3D
+    margin-top: 0
+
     header
-      display: block
+      margin-left: 0
 
     main
-      .orders-list
-        display: block
+      opacity: 1
 
     footer
       button
-        display: block
+        opacity: 1
 
   header
     color: $orders-heading__text
     padding: $layout-padding
-    display: none
+    margin-left: -100px
+    +transition-property(margin-left)
+    +transition-duration(1.2s)
+    +transition-timing-function(ease)
+
 
     h1
 
@@ -32,6 +43,10 @@
 
   main
     padding: 0 $layout-padding $layout-padding $layout-padding
+    opacity: 0
+    +transition-property(opacity)
+    +transition-duration(2s)
+    +transition-timing-function(ease)
 
     >label
       color: $orders-subheading__text
@@ -42,6 +57,7 @@
     padding: $layout-padding
     border-top: 1px solid lighten($orders-bg, 15)
     +display-flex
+    margin-top: auto
 
     button
       background-color: $orders-action__bg
@@ -51,7 +67,7 @@
       font-size: 1em
       padding: $layout-padding/2
       width: $full
-      display: none
+      opacity: 0
 
 
     label
@@ -78,7 +94,6 @@
   overflow-y: auto
   -webkit-overflow-scrolling: touch
   max-height: 150px
-  display: none
 
   &.scrolling
     +box-shadow(inset 0 20px 20px -20px darken($orders-item__bg, 40), inset 0 -20px 20px -20px darken($orders-item__bg, 40))
