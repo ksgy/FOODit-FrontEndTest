@@ -1,12 +1,13 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: MealslistCtrl', function () {
 
   // load the controller's module
   beforeEach(module('jstestApp'));
 
-  var MainCtrl,
-  scope;
+  var MealslistCtrl,
+  scope,
+  MenuService;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $injector) {
@@ -16,11 +17,15 @@ describe('Controller: MainCtrl', function () {
       return func({resultCount: 1});
     };
     spyOn(MenuService, 'getMenu').and.returnValue({then: success});
-    MainCtrl = $controller('MainCtrl', {
+    MealslistCtrl = $controller('MealslistCtrl', {
       $scope: scope
     });
   }));
 
 
+  it('should call the menu service to retrieve a list of meals', function () {
+    expect(MenuService.getMenu).toHaveBeenCalled();
+    expect(scope.menu.resultCount).toBe(1);
+  });
 
 });
