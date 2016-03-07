@@ -10,7 +10,7 @@
 angular.module('jstestApp')
 .directive('addOrder', function (orderService) {
   return {
-    templateUrl: '/views/addorder.html',
+    templateUrl: 'views/addorder.html',
     restrict: 'E',
     replace: true,
     link: function postLink(scope, element, attrs) {

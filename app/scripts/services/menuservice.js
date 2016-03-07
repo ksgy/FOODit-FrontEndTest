@@ -24,7 +24,7 @@ angular.module('jstestApp')
     function getMenu () {
       var d = $q.defer();
 
-      $http.get('/data/menu.json').success(function(data) {
+      $http.get('data/menu.json').success(function(data) {
         menu = setProperties(data);
         d.resolve(menu);
       })

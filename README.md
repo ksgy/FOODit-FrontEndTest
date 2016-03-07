@@ -1,6 +1,9 @@
 FOODit-jsTest
 =============
 
+## Demo
+http://x-plane.hu/projects/foodit/
+
 ## Getting started
 
 1. Fork this Github repository.
