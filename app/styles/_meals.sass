@@ -1,135 +1,139 @@
 .meals
-	padding: $layout-padding
-	background-color: $meals-bg
+  padding: $layout-padding
+  background-color: $meals-bg
 
-	header
-		margin: $layout-padding 0 $layout-padding 0
-		.restaurant
-			color: $meals-heading
-			font-weight: bold
+  header
+    margin: $layout-padding 0 $layout-padding 0
+    .restaurant
+      color: $meals-heading
+      font-weight: bold
 
 .meals-list
-	section
-		+display-flex
-		+flex-direction(column-reverse) // TODO change to 'column', check to use order reversed on .meals-list__item--xx items
-		padding-bottom: $layout-padding
-		background-color: $meals-item__bg
+  section
+    +display-flex
+    +flex-direction(column-reverse) // TODO change to 'column', check to use order reversed on .meals-list__item--xx items
+    padding-bottom: $layout-padding
+    background-color: $meals-item__bg
 
 .meals-list__item
-	background-color: $meals-item__bg
-	background-repeat: no-repeat
-	background-size: cover
-	background-position: 50% 0%
-	border: 1px solid $meals-item__border
-	height: 360px
-	margin: 0 0 $layout-padding 0
-	position: relative
-	+display-flex
-	+flex-direction(column-reverse) // TODO change to 'column', check to use order reversed on .meals-list__item--xx items
+  background-color: $meals-item__bg
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: 50% 0%
+  border: 1px solid $meals-item__border
+  height: 360px
+  margin: 0 0 $layout-padding 0
+  position: relative
+  +display-flex
+  +flex-direction(column-reverse) // TODO change to 'column', check to use order reversed on .meals-list__item--xx items
 
 .meals-list__item--name
-	order: 4
-	text-align: center
-	font-size: 1.25em
-	color: $meals-heading
-	position: relative
-	z-index: 0
-	margin: 0 0 $layout-padding 0
-	line-height: 1em
+  order: 4
+  text-align: center
+  font-size: 1.25em
+  color: $meals-heading
+  position: relative
+  z-index: 0
+  margin: 0 0 $layout-padding 0
+  line-height: 1em
+  background-color: rgba(255,255,255,0.85)
+  padding-bottom: 40px
 
-	// &:before
-	// 	content: ' '
-	// 	display: block
-	// 	position: absolute
-	// 	left: 0
-	// 	top: -26px
-	// 	width: 100%
-	// 	height: 26px
-	// 	z-index: -1
-	// 	opacity: 0.75
-	// 	background-image: url(/assets/meal-card__curve.svg)
-	// 	background-repeat: no-repeat
-	// 	background-position: 50% 0
-	// 	background-size: cover
+  &:before
+    content: ' '
+    display: block
+    position: absolute
+    left: 0
+    top: -22px
+    width: 100%
+    height: 800px
+    z-index: -1
+    opacity: 0.85
+    background-image: url(/assets/meal-card__curve.svg)
+    background-repeat: no-repeat
+    background-position: 50% 0
+    background-size: cover
 
 
 .meals-list__item--description
-	order: 3
-	position: relative
-	z-index: 1
-	font-size: 0.85em
-	line-height: 1.2em
-	padding: $layout-padding*1.5
-	color: $meals-heading
+  order: 3
+  position: relative
+  z-index: 1
+  font-size: 0.85em
+  line-height: 1.2em
+  padding: $layout-padding*1.5
+  color: $meals-heading
 
-	&.filtered:after
-		content: ' '
-		display: inline-block
-		width: 33px
-		height: 12px
-		z-index: 0
-		background-image: url(/assets/expand-button.svg)
-		background-repeat: no-repeat
-		background-position: 50% 0
-		background-size: contain
-		margin-left: 0.5em
+  &.filtered:after
+    content: ' '
+    display: inline-block
+    width: 33px
+    height: 12px
+    z-index: 0
+    background-image: url(/assets/expand-button.svg)
+    background-repeat: no-repeat
+    background-position: 50% 0
+    background-size: contain
+    margin-left: 0.5em
 
-	&:before
-		content: ' '
-		display: block
-		position: absolute
-		left: 0
-		top: -12px
-		width: 100%
-		height: 26px
-		z-index: -1
-		background-image: url(/assets/meal-card__curve.svg)
-		background-repeat: no-repeat
-		background-position: 50% 0
+  &:before
+    content: ' '
+    display: block
+    position: absolute
+    left: 0
+    top: -22px
+    width: 100%
+    height: 800px
+    z-index: -1
+    background-image: url(/assets/meal-card__curve.svg)
+    background-repeat: no-repeat
+    background-position: 50% 0
+    background-size: cover
 
 
 .meals-list__item--tags
-	order: 2
-	position: relative
-	z-index: 2
-	+display-flex
-	justify-content: center
+  order: 2
+  position: relative
+  z-index: 2
+  +display-flex
+  justify-content: center
+  margin-top: -50px
 
-	li
-		display: block
-		width: 20px
-		height: 20px
-		margin: 0 $layout-padding/4
-		background-size: 100%
-		background-position: center
+  li
+    display: block
+    width: 40px
+    height: 40px
+    margin: 0 $layout-padding/4
+    background-size: 100%
+    background-position: center
 
 .meals-list__item--add-btn
-	order: 1
-	position: relative
-	z-index: 1
-	background-color: $meals-item__action
-	border: 0
-	color: $meals-item__bg
-	font-style: italic
-	font-size: 1em
-	margin: 0 $layout-padding
-	padding: $layout-padding/2
+  order: 1
+  position: relative
+  z-index: 1
+  background-color: $meals-item__action
+  border: 0
+  color: $meals-item__bg
+  font-style: italic
+  font-size: 1em
+  margin: 0 $layout-padding
+  padding: $layout-padding/2
 
 .meals-list__item--options
-	order: 0
-	position: relative
-	z-index: 1
-	color: $meals-options
-	font-size: 0.75em
-	margin: $layout-padding 0 0 $layout-padding*1.5
+  order: 0
+  position: relative
+  z-index: 1
+  color: $meals-options
+  font-size: 0.75em
+  margin: $layout-padding 0 0 $layout-padding*1.5
 
 
 .meals-list__item--price
-	// TODO position
-	position: absolute
-	top: 0
-	left: 50%
-	background-color: $meals-item__action
-	color: $meals-item__bg
-	font-size: 1em
-	padding: $layout-padding/2 $layout-padding
+  // TODO position
+  position: absolute
+  top: 0
+  left: 50%
+  background-color: $meals-item__action
+  color: $meals-item__bg
+  font-size: 1em
+  padding: $layout-padding/2 $layout-padding
