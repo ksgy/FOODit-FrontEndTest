@@ -12,6 +12,7 @@ angular.module('jstestApp')
   $scope.getCourses = orderService.getCourses;
   $scope.addMeal = orderService.addMeal;
   $scope.removeMeal = orderService.removeMeal;
+  $scope.confirmOrder = orderService.confirmOrder;
   $scope.getOrders = function(course) {
     // "merge" amount property with the orders
     var _orders = orderService.getOrders(course)
@@ -39,6 +40,10 @@ angular.module('jstestApp')
       total += parseFloat(orders[i].amount * MenuService.getMeal(orders[i].id).price);
     }
     return total
+  }
+
+  $scope.timeToOrder = function() {
+    alert('You must be hungry...\nHint: select food you\'d like to order, then click, "Add To Your Order :)"');
   }
 
 });

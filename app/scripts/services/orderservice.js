@@ -19,7 +19,8 @@ angular.module('jstestApp')
       removeMeal: removeMeal,
       placeOrder: placeOrder,
       error: getError,
-      getCourses: getCourses
+      getCourses: getCourses,
+      confirmOrder: confirmOrder
     };
 
     return service;
@@ -103,6 +104,11 @@ angular.module('jstestApp')
         return _.get(MenuService.getMeal(order.id), 'course')
       })));
 
+    }
+
+    function confirmOrder () {
+      orders = [];
+      alert('nom-nom :)');
     }
 
     function saveOrders () {

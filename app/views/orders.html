@@ -1,8 +1,4 @@
-<section class="orders open">
-
-  <header  ng-if="getCourses().length == 0">
-    <button class="orders-order__btn">It's time to order some delicios food</button>
-  </header>
+<section class="orders">
 
   <header ng-if="getCourses().length > 0">
     <h1>Your Order</h1>
@@ -24,8 +20,14 @@
   </main>
 
   <footer ng-if="getCourses().length > 0">
-    <button>Confirm Your Order</button>
-    <label>£{{getTotal()|number:2}}</label>
+    <label class="course" ng-repeat="course in getCourses() track by $index">{{ getOrders(course).length }} main{{getOrders(course).length>1?'s':''}}</label>
+    <button ng-click="confirmOrder()">Confirm Your Order</button>
+    <label class="total">£{{getTotal()|number:2}}</label>
   </footer>
+
+  <footer ng-if="getCourses().length == 0" class="empty">
+    <button ng-click="timeToOrder()" class="orders-order__btn">It's time to order some delicios food</button>
+  </footer>
+
 
 </section>

@@ -3,6 +3,7 @@
 @import "compass/css3/border-radius"
 @import "compass/css3/box-shadow"
 @import "compass/css3/transition"
+@import "compass/css3/transform"
 @import "compass/utilities"
 
 ////////////////////////////////
@@ -15,7 +16,7 @@ $full: 100%
 [class$="btn"]
   +border-radius(3px)
 
-// html *
-//   +transition-property(all)
-//   +transition-duration(0.25s)
-//   +transition-timing-function(ease)
+html *
+  +transition-property(all)
+  +transition-duration(1s)
+  +transition-timing-function(ease)
