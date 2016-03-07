@@ -11,6 +11,7 @@ describe('Service: orderService', function () {
   var $httpBackend;
 
   beforeEach(inject(function ($injector) {
+    localStorage.clear();
     $httpBackend          = $injector.get('$httpBackend');
     MenuService = $injector.get('MenuService');
     orderService = $injector.get('orderService');
@@ -139,6 +140,35 @@ describe('Service: orderService', function () {
 
       var ordersMain = orderService.getOrders('main_courses');
       expect(ordersMain.length).toBe(1);
+    }, function(error) {
+          // TODO error handling
+        });
+    $httpBackend.flush();
+  });
+
+  it('should make an order', function () {
+    var menuData = {'resultCount': 2, 'offset': 0, 'pageSize': 20, 'meals': [
+      { id: '123', tags: ['#course:main_courses', '#diet:pescetarian'] },
+      { id: '456', tags: ['#course:sides'] },
+      { id: '789' }
+    ]};
+    $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
+      return [200, menuData];
+    });
+
+    MenuService.getMenu().then(function (data) {
+      orderService.addMeal('123');
+      orderService.addMeal('456');
+      orderService.addMeal('789');
+
+      var ordersAll = orderService.getOrders();
+      expect(ordersAll.length).toBe(3);
+
+      var ordersMain = orderService.getOrders('main_courses');
+      expect(ordersMain.length).toBe(1);
+      // orderService.confirmOrder();
+      // expect(ordersAll.length).toBe(0);
+
     }, function(error) {
           // TODO error handling
         });
