@@ -3,6 +3,7 @@ FOODit-jsTest
 
 ## Demo
 http://x-plane.hu/projects/foodit/
+(Make sure you open on a mobile device or enable Device Mode in Chrome foe swiping)
 
 ## Getting started
 
