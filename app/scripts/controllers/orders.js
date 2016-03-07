@@ -42,4 +42,8 @@ angular.module('jstestApp')
     return total
   }
 
+  $scope.timeToOrder = function() {
+    alert('You must be hungry...\nHint: select food you\'d like to order, then click, "Add To Your Order :)"');
+  }
+
 });
