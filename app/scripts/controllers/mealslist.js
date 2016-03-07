@@ -10,7 +10,6 @@
 angular.module('jstestApp')
   .controller('MealslistCtrl', function ($scope, MenuService, orderService) {
     $scope.menu = {};
-
     $scope.addMeal = orderService.addMeal;
 
       MenuService.getMenu().then(function(data) {

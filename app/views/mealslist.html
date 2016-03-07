@@ -4,8 +4,8 @@
         <ul class="meals-list__item--tags">
           <li ng-repeat="tag in meal.tags track by $index" ng-class="{{getMealClass(tag)}}" style="{{getTagImage(tag)}}"></li>
         </ul>
-        <section>
-          <p class="meals-list__item--description filtered">{{meal.description}}</p>
+        <section ng-init="showFullText">
+          <p class="meals-list__item--description filtered" ng-click="showFullText = !showFullText">{{meal.description|expand:showFullText}}</p>
           <p class="meals-list__item--price">{{meal.price}}</p>
           <add-order></add-order>
           <small class="meals-list__item--options">3 options available</small>

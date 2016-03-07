@@ -49,6 +49,7 @@ It uses AngularJS 1.3
 [ ] Add "Clear" button to orders overlay
 [ ] Meals list can in 2-3 columns on tablet landscape
 [ ] Add down arrow/bouncing animation/etc to closed state of order overlay
+[ ] Hide [...] on meal-card if text is only 1 sentence
 
 ## Bugs
 
