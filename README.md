@@ -43,26 +43,26 @@ It uses AngularJS 1.3
 
 ## TODO
 
-[ ] Fix SVG on meal-cards 
-[ ] Add open/close detailed text on meal-card
-[ ] Check height of orders-list and add `scrolling` class if needed 
-[ ] Add "Clear" button to orders overlay
-[ ] Meals list can in 2-3 columns on tablet landscape
-[ ] Add down arrow/bouncing animation/etc to closed state of order overlay
-[ ] Hide [...] on meal-card if text is only 1 sentence
+- [ ] Fix SVG on meal-cards 
+- [ ] Add open/close detailed text on meal-card
+- [ ] Check height of orders-list and add `scrolling` class if needed 
+- [ ] Add "Clear" button to orders overlay
+- [ ] Meals list can in 2-3 columns on tablet landscape
+- [ ] Add down arrow/bouncing animation/etc to closed state of order overlay
+- [ ] Hide [...] on meal-card if text is only 1 sentence
 
 ## Bugs
 
-[ ] iPhone / portrait: orders overlay falls apart (might be a flexbox issue)
+- [ ] iPhone / portrait: orders overlay falls apart (might be a flexbox issue)
 
 ## Refactor
 
-[ ] Refactor function calls to variables for ng-repeat
-[ ] Refactor $scope/service functions to variables to save $digest()/$apply()
-[ ] Position price with flexbox
-[ ] Error handling for $http calls
-[ ] Pagination
-[ ] Refactor CSS classes: button mixin, etc.
-[ ] Breakdown functional parts to directives
-[ ] Unit tests for controllers
-[ ] e2e tests
+- [ ] Refactor function calls to variables for ng-repeat
+- [ ] Refactor $scope/service functions to variables to save $digest()/$apply()
+- [ ] Position price with flexbox
+- [ ] Error handling for $http calls
+- [ ] Pagination
+- [ ] Refactor CSS classes: button mixin, etc.
+- [ ] Breakdown functional parts to directives
+- [ ] Unit tests for controllers
+- [ ] e2e tests
