@@ -43,16 +43,11 @@ It uses AngularJS 1.3
 
 ## TODO
 
-[ ] Add SVG to meal-cards 
-[ ] Swiping down only on orders overlay should open it. Swiping on meal list, should keep it colsed 
-[ ] Fix closed state of orders overlay
+[ ] Fix SVG on meal-cards 
 [ ] Add open/close detailed text on meal-card
 [ ] Check height of orders-list and add `scrolling` class if needed 
-[ ] Add animation to orders
-[ ] Add feedback for the user if meal has added to the orders
 [ ] Add "Clear" button to orders overlay
 [ ] Meals list can in 2-3 columns on tablet landscape
-[ ] `It's time to order some delicious...` confusing - should show a message what to do
 [ ] Add down arrow/bouncing animation/etc to closed state of order overlay
 
 ## Bugs
