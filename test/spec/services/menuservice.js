@@ -27,7 +27,7 @@ describe('Service: MenuService', function () {
       { id: '456' }
     ]};
 
-    $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
+    $httpBackend.whenGET(/data\/menu.json?.*/).respond(function(/* method, url */) {
       return [200, menuData];
     });
 
@@ -46,7 +46,7 @@ describe('Service: MenuService', function () {
       { id: '123' },
       { id: '456' }
     ]};
-    $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
+    $httpBackend.whenGET(/data\/menu.json?.*/).respond(function(/* method, url */) {
       return [200, menuData];
     });
     MenuService.getMenu().then(function (data) {
@@ -65,7 +65,7 @@ describe('Service: MenuService', function () {
       { id: '456', tags: ['#course:sides'] },
       { id: '789' }
     ]};
-    $httpBackend.whenGET(/\/data\/menu.json?.*/).respond(function(/* method, url */) {
+    $httpBackend.whenGET(/data\/menu.json?.*/).respond(function(/* method, url */) {
       return [200, menuData];
     });
     MenuService.getMenu().then(function (data) {
