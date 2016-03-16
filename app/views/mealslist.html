@@ -1,12 +1,12 @@
 <ul class="meals-list">
-    <li class="meals-list__item" ng-repeat="meal in menu.meals track by meal.id" style="background-image: url({{meal.primaryImageUrl}})">
-        <h4 class="meals-list__item--name">{{meal.name}}</h4>
+    <li class="meals-list__item" ng-repeat="meal in menu.meals track by meal.id" style="background-image: url({{::meal.primaryImageUrl}})">
+        <h4 class="meals-list__item--name">{{::meal.name}}</h4>
         <ul class="meals-list__item--tags">
-          <li ng-repeat="tag in meal.tags track by $index" ng-class="{{getMealClass(tag)}}" style="{{getTagImage(tag)}}"></li>
+          <li ng-repeat="tag in meal.tags track by $index" ng-class="{{::getMealClass(tag)}}" style="{{::getTagImage(tag)}}"></li>
         </ul>
         <section ng-init="showFullText">
-          <p class="meals-list__item--description filtered" ng-click="showFullText = !showFullText">{{meal.description|expand:showFullText}}</p>
-          <p class="meals-list__item--price">{{meal.price}}</p>
+          <p class="meals-list__item--description filtered" ng-click="showFullText = !showFullText">{{::meal.description|expand:showFullText}}</p>
+          <p class="meals-list__item--price">{{::meal.price}}</p>
           <add-order></add-order>
           <small class="meals-list__item--options">3 options available</small>
         </section>
